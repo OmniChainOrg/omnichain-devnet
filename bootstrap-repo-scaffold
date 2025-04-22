@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# OmniChain DevNet Bootstrap Repo Scaffold
+# Repo: OmniChainOrg/omnichain-devnet
+
+ORG="OmniChainOrg"
+REPO="omnichain-devnet"
+
+gh repo create "$ORG/$REPO" --public --description "OmniChain DevNet-2 public testnet: simulation-aware PoA validators" --confirm
+
+git clone https://github.com/$ORG/$REPO.git
+cd $REPO || exit
+
+# Add genesis file
+mkdir config
+cp ../Genesis_DevNet_2.json config/genesis.json
+
+# Docker Compose
+cat <<EOF > docker-compose.yml
+version: '3.8'
+services:
+  matrixedcore:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: matrixedcore
+    volumes:
+      - ./config:/root/.omnichain/config
+      - ./plugins:/usr/local/validator_plugins
+    ports:
+      - "26656:26656"
+      - "26657:26657"
+      - "1317:1317"
+      - "9090:9090"
+    environment:
+      - MONIKER=MatrixedCore
+      - CHAIN_ID=omnichain-devnet-2
+EOF
+
+# Sample boot script
+cat <<EOF > start-devnet.sh
+#!/bin/bash
+set -e
+
+echo "🔧 Initializing OmniChain DevNet-2..."
+docker-compose down
+sleep 1
+docker-compose up --build -d
+EOF
+chmod +x start-devnet.sh
+
+# README
+cat <<EOF > README.md
+# 🌐 OmniChain DevNet-2
+
+> Simulation-Aware Public Testnet — PoA Validators Anchored in Scientific Integrity
+
+## 📦 Components
+- `genesis.json`: DevNet-2 initial chain state
+- `docker-compose.yml`: Launch MatrixedCore validator node
+- `plugins/`: Validator-side hash verifiers
+
+## 🚀 Quick Start
+```bash
+git clone https://github.com/$ORG/$REPO.git
+cd omnichain-devnet
+bash start-devnet.sh
+```
+
+## 🧠 Powered by SirrenaAI + OmniTwin Core
+EOF
+
+# Finalize
+mkdir plugins
+cp ../validator-onboarding/plugins/model_checker.py plugins/
+
+git add .
+git commit -m "Scaffold OmniChain DevNet-2: genesis + docker-compose"
+git push origin main
+
+cd ..
+echo "✅ DevNet repo ready: https://github.com/$ORG/$REPO"
