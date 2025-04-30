@@ -96,6 +96,8 @@ MIT — Because truth should be reproducible.
 
 ---
 
+![OmniChain](https://img.shields.io/badge/OmniChain-DeSci%20Validator-blueviolet)
+
 > “The future of science isn’t peer-reviewed. It’s validator-anchored.”
 
 \#OmniChain #DigitalTwins #ValidatorScience #DecentralizedAI #ModelIntegrity #ScientificBlockchain
