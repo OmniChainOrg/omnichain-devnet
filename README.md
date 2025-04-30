@@ -58,7 +58,16 @@ bash scripts/start_matrixedcore.sh
 
 ---
 
-## 🧠 Become a Validator of Scientific Integrity™
+## 🛡 Become a Validator of Scientific Integrity™
+
+OmniChain DevNet-2 is open to scientific validators.
+
+Start your validator journey here:  
+👉 [Validator Onboarding Repository](https://github.com/OmniChainOrg/validator-onboarding)
+
+- Follow the guide
+- Submit a PR to `validators.json`
+- Join the network and help anchor scientific truth
 
 No mining. No staking. Just pure trust anchored by computation.
 
