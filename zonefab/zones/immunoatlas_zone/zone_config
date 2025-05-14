@@ -1,0 +1,5 @@
+[zone]
+name = "immunoatlas_zone"
+modules = ['tcr_seq_log', 'immune_signature_trace', 'trial_enrollment_log']
+visual = true
+api_enabled = true
