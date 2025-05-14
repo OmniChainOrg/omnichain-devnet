@@ -1,0 +1,5 @@
+[zone]
+name = "omniversalisdao_zone"
+modules = ['proposal_log', 'vote_registry', 'budget_allocation_trace']
+visual = true
+api_enabled = true
