@@ -1,0 +1,5 @@
+[zone]
+name = "biosynthesis_zone"
+modules = ['synbio_prov_log', 'cell_line_registry', 'gene_edit_trace']
+visual = true
+api_enabled = true
