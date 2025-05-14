@@ -1,0 +1,125 @@
+{
+    "chain_id": "omnichain-devnet-2",
+    "genesis_time": "2025-04-22T09:00:00Z",
+    "validators": [
+        {
+            "name": "MatrixedCore",
+            "address": "A1B2C3Matrixed",
+            "pub_key": "omnipub1matrixedkeyxyz",
+            "power": "10",
+            "moniker": "MatrixedCore",
+            "plugins": [
+                "model_checker.py"
+            ],
+            "badge": "badges/MatrixedCore_validator_badge.png"
+        },
+        {
+            "name": "open-validator-1",
+            "address": "0xOPEN1",
+            "pub_key": null,
+            "power": "0",
+            "moniker": "TBD",
+            "plugins": []
+        },
+        {
+            "name": "open-validator-2",
+            "address": "0xOPEN2",
+            "pub_key": null,
+            "power": "0",
+            "moniker": "TBD",
+            "plugins": []
+        },
+        {
+            "name": "open-validator-3",
+            "address": "0xOPEN3",
+            "pub_key": null,
+            "power": "0",
+            "moniker": "TBD",
+            "plugins": []
+        }
+    ],
+    "app_state": {
+        "modules": [
+            "twin_registry",
+            "simulation_trace",
+            "model_provenance",
+            "cms_score_log",
+            "credential_hash"
+        ],
+        "simulation_trace": {
+            "hashes": []
+        },
+        "model_provenance": {
+            "registry": []
+        }
+    },
+    "initial_height": "1",
+    "params": {
+        "token_logic": false,
+        "fee_logic": false,
+        "simulation_signature_threshold": "1-of-1"
+    },
+    "metadata": {
+        "network": "DevNet-2",
+        "created_by": "SirrenaAI",
+        "purpose": "Public Testnet Validator Onboarding"
+    },
+    "zones": [
+        {
+            "name": "neuroedge_zone",
+            "modules": [
+                "neuro_trace_log",
+                "bci_input_registry",
+                "cognition_index"
+            ]
+        },
+        {
+            "name": "biosynthesis_zone",
+            "modules": [
+                "synbio_prov_log",
+                "cell_line_registry",
+                "gene_edit_trace"
+            ]
+        },
+        {
+            "name": "immunoatlas_zone",
+            "modules": [
+                "tcr_seq_log",
+                "immune_signature_trace",
+                "trial_enrollment_log"
+            ]
+        },
+        {
+            "name": "hope_zone",
+            "modules": [
+                "ubi_stream_log",
+                "qr_redeem_log",
+                "impact_score_log"
+            ]
+        },
+        {
+            "name": "omniversalisdao_zone",
+            "modules": [
+                "proposal_log",
+                "vote_registry",
+                "budget_allocation_trace"
+            ]
+        },
+        {
+            "name": "tradepharma_zone",
+            "modules": [
+                "drug_redeem_log",
+                "supplier_registry",
+                "cold_chain_trace"
+            ]
+        },
+        {
+            "name": "regops_zone",
+            "modules": [
+                "compliance_log",
+                "submission_registry",
+                "trial_phase_tracker"
+            ]
+        }
+    ]
+}
