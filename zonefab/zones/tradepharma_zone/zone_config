@@ -1,0 +1,5 @@
+[zone]
+name = "tradepharma_zone"
+modules = ['drug_redeem_log', 'supplier_registry', 'cold_chain_trace']
+visual = true
+api_enabled = true
