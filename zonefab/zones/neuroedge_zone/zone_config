@@ -1,0 +1,5 @@
+[zone]
+name = "neuroedge_zone"
+modules = ['neuro_trace_log', 'bci_input_registry', 'cognition_index']
+visual = true
+api_enabled = true
