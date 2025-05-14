@@ -1,0 +1,5 @@
+[zone]
+name = "hope_zone"
+modules = ['ubi_stream_log', 'qr_redeem_log', 'impact_score_log']
+visual = true
+api_enabled = true
