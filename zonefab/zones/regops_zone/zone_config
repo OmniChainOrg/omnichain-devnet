@@ -1,0 +1,5 @@
+[zone]
+name = "regops_zone"
+modules = ['compliance_log', 'submission_registry', 'trial_phase_tracker']
+visual = true
+api_enabled = true
