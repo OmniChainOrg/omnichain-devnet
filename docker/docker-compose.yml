@@ -1,3 +1,40 @@
+version: "3.8"
+services:
+  seednode:
+    image: your-org/omnidevd:latest
+    command: start --home /root/.omni
+    volumes:
+      - ./config/seed:/root/.omni/config
+
+  thervac-node:
+    image: your-org/omnidevd:latest
+    depends_on: [seednode]
+    command: start --home /root/.omni
+    volumes:
+      - ./config/thervac:/root/.omni/config
+
+  omnidao-node:
+    image: your-org/omnidevd:latest
+    depends_on: [seednode]
+    command: start --home /root/.omni
+    volumes:
+      - ./config/omnidao:/root/.omni/config
+
+  tradepharma-node:
+    image: your-org/omnidevd:latest
+    depends_on: [seednode]
+    command: start --home /root/.omni
+    volumes:
+      - ./config/tradepharma:/root/.omni/config
+
+  tesladuo-node:
+    image: your-org/omnidevd:latest
+    depends_on: [seednode]
+    command: start --home /root/.omni
+    volumes:
+      - ./config/tesladuo:/root/.omni/config
+
+  
   explorer-db:        # (as before)
   subnet-explorer-indexer:
     build: ./subnet-explorer-indexer
