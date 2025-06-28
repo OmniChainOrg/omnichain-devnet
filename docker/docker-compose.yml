@@ -6,14 +6,14 @@ services:
     volumes:
       - ./config/seed:/root/.omni/config
 
-  thervac-node:
+  theravac-node:
     image: your-org/omnidevd:latest
     depends_on: [seednode]
     command: start --home /root/.omni
     volumes:
       - ./config/thervac:/root/.omni/config
 
-  omnidao-node:
+  omniversalisdao-node:
     image: your-org/omnidevd:latest
     depends_on: [seednode]
     command: start --home /root/.omni
