@@ -1,1 +1,11 @@
+  explorer-db:        # (as before)
+  subnet-explorer-indexer:
+    build: ./subnet-explorer-indexer
+    env_file: ./subnet-explorer-indexer/.env
+    depends_on: [ seednode, explorer-db ]
 
+  subnet-explorer-ui:
+    build: ./subnet-explorer-ui
+    env_file: ./subnet-explorer-ui/.env
+    ports: ["8080:3000"]
+    depends_on: [ subnet-explorer-indexer ]
