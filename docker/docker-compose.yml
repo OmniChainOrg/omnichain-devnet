@@ -5,20 +5,23 @@ services:
     command: start --home /root/.omni
     volumes:
       - ./config/seed:/root/.omni/config
+    restart: unless-stopped
 
   theravac-node:
     image: your-org/omnidevd:latest
     depends_on: [seednode]
     command: start --home /root/.omni
     volumes:
-      - ./config/thervac:/root/.omni/config
+      - ./config/theravac:/root/.omni/config
+    restart: unless-stopped
 
-  omniversalisdao-node:
+  omnidao-node:
     image: your-org/omnidevd:latest
     depends_on: [seednode]
     command: start --home /root/.omni
     volumes:
       - ./config/omnidao:/root/.omni/config
+    restart: unless-stopped
 
   tradepharma-node:
     image: your-org/omnidevd:latest
@@ -26,6 +29,7 @@ services:
     command: start --home /root/.omni
     volumes:
       - ./config/tradepharma:/root/.omni/config
+    restart: unless-stopped
 
   tesladuo-node:
     image: your-org/omnidevd:latest
@@ -33,16 +37,33 @@ services:
     command: start --home /root/.omni
     volumes:
       - ./config/tesladuo:/root/.omni/config
+    restart: unless-stopped
 
-  
-  explorer-db:        # (as before)
+  explorer-db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: explorer
+      POSTGRES_USER: explorer
+      POSTGRES_PASSWORD: secretpass
+    volumes:
+      - explorer_data:/var/lib/postgresql/data
+
   subnet-explorer-indexer:
     build: ./subnet-explorer-indexer
     env_file: ./subnet-explorer-indexer/.env
-    depends_on: [ seednode, explorer-db ]
+    ports:
+      - "4000:4000"
+    depends_on:
+      - seednode
+      - explorer-db
 
   subnet-explorer-ui:
     build: ./subnet-explorer-ui
     env_file: ./subnet-explorer-ui/.env
-    ports: ["8080:3000"]
-    depends_on: [ subnet-explorer-indexer ]
+    ports:
+      - "8080:3000"
+    depends_on:
+      - subnet-explorer-indexer
+
+volumes:
+  explorer_data:
